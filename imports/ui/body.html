@@ -1,29 +1,28 @@
 <body>
     <div class="header">
-            <div class="header-top">
-                <div class="wrap">
-                    <div class="banner-no">
-                        <img src="images/banner-no.png" alt=""/>
-                    </div>
-                    <div class="nav-wrap">
-                        <ul class="group" id="example-one">
-                        <li class="current_page_item">
-                            <a href="#" ng-click="mc.signIn()" ng-if="!mc.user.isSignedOn"><i class=""></i> Sign-in with Google</a>
-                            <a href="#" ng-click="mc.signOut()" ng-if="mc.user.isSignedOn">
-                            <img class="img-circle" src="{{mc.user.photo}}" alt="{{mc.user.name}}" style="width:3em;"/>
-                            Sign-out</a>
-                        </li>
-                        </ul>
-                    </div>
-                    <div class="clear"></div>
+        <div class="header-top">
+            <div class="wrap">
+                <div class="banner-no">
+                    <img src="images/banner-no.png" alt=""/>
                 </div>
+                <div class="nav-wrap">
+                    <ul class="group" id="example-one">
+                    <li class="current_page_item">
+                        <a href="#" ng-click="mc.signIn()" ng-if="!mc.user.isSignedOn"><i class=""></i> {{> loginButtons}}</a>
+                    </li>
+                    </ul>
+
+                    
+                </div>
+                <div class="clear"></div>
             </div>
         </div>
-        <div class="block">
+    </div>
+    <div class="block">
         <div class="wrap">
-        <div class="h-logo">
-            <a href="index.html"><img src="images/logo.png" alt=""/></a>
-        </div>
+            <div class="h-logo">
+                <a href="index.html"><img src="images/logo.png" alt=""/></a>
+            </div>
             <div class="clear"></div>
         </div>
     </div>
@@ -71,7 +70,7 @@
             <div class="col-md-3">
                 <h3>Blockbuster Movies</h3>
                 <div class="form-group" ng-if="mc.user.isSignedOn">
-                <button class="btn btn-success add-newmovie"><i class=" glyphicon glyphicon-plus"></i> Add New Movie</button>
+                <button class="btn {{#if isaddnewmovie}}btn-success {{else}} btn-default {{/if}} add-newmovie"><i class=" glyphicon  {{#if isaddnewmovie}}  glyphicon-plus {{else}} glyphicon-circle-arrow-left {{/if}}"></i> {{#if isaddnewmovie}}Add New Movie {{else}} Cancel {{/if}}</button>
                 </div>
                 {{#each movies}}
                  <div class="content-left form-group"> 
@@ -99,11 +98,11 @@
                     <div class="panel-heading">Seats</div>
                     <div class="panel-body text-center">
                     
-                    {{#if addNewmovie.get}}
+                    {{#if isaddnewmovie}}
                      <div>
                         {{#each movieperseats}}
                         <div class="col">
-                            <button type="button" class="btn reserved-seat {{#if status}} btn-success {{/if}}">{{seatno}}</button>
+                            <button type="button" class="btn reserved-seat {{#if status}} btn-success {{/if}}">{{seatNo}}</button>
                         </div>
                         {{/each}}
                     </div> 
@@ -135,29 +134,24 @@
 
                                 <div class="form-group">
                                     <label class="control-label col-md-3 col-sm-3 col-xs-12 text-left">Capacity</label>
-                                    <div class="col-md-4 col-sm-4 col-xs-12 form-group">
+                                    <div class="col-md-9 col-sm-4 col-xs-12 form-group">
                                     <input type="number" name="capacity" class="form-control col-md-7 col-xs-12 capacity" required>
                                     </div>
                                 </div>
 
                                 
                                 <div class="form-group">
-                                    <label class="control-label col-md-4 col-sm-3 col-xs-12">Banner</label>
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12 text-left">Banner</label>
                                     <div class="col-md-9 col-sm-9 col-xs-12 form-group">
-                                        <file-field ng-model="vm.movieDetails.uploadFile" preview="previewImage" class="col-md-4 col-sm-4 col-xs-12 btn btn-success">Select File</file-field>
-                                        <div class="form-group">
-                                            <img ng-src="{{previewImage}}" class="img-responsive" ng-class="{'img-thumbnail':previewImage}">
-                                        </div>
+                                        <!-- https://images-na.ssl-images-amazon.com/images/M/MV5BMjI2NjI2MDQ0NV5BMl5BanBnXkFtZTgwMTc1MjAwMjI@._V1_UX182_CR0,0,182,268_AL_.jpg -->
+                                        <input type="text" name="banner" class="form-control col-md-7 col-xs-12" placeholder="Please input image url" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="control-label col-md-4 col-sm-3 col-xs-12">Frame Photo</label>
-                                    <div class="col-md-8 col-sm-9 col-xs-12 form-group">
-                                        <file-field ng-model="vm.movieDetails.uploadFrame" preview="previewFrame" class="col-md-4 col-sm-4 col-xs-12 btn btn-success">Select File</file-field>
-                                        <div class="form-group">
-                                            <img ng-src="{{previewFrame}}" class="img-responsive" ng-class="{'img-thumbnail':previewFrame}">
-                                        </div>
+                                    <label class="control-label col-md-3 col-sm-3 col-xs-12 text-left">Frame Photo</label>
+                                    <div class="col-md-9 col-sm-9 col-xs-12 form-group">
+                                        <input type="text" name="frame" class="form-control col-md-7 col-xs-12" placeholder="Please input image url" required>
                                     </div>
                                 </div>
                             </div>

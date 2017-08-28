@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 
@@ -9,6 +10,8 @@ import './body.html';
 Template.body.onCreated(function bodyOnCreated(){
     this.state = new ReactiveDict();
     this.addNewmovie = new ReactiveVar(0);
+    Meteor.subscribe('movies');
+    Meteor.subscribe('seats');
 })
 
 Template.body.helpers({
@@ -25,25 +28,33 @@ Template.body.helpers({
             var getFirstMovie = Movies.find({}).fetch()[0];
             return Seats.find({movieid:getFirstMovie._id}).fetch();    
         }
+        console.log(Seats.find({movieid:movieIdSelected}).fetch());
         return Seats.find({movieid:movieIdSelected}).fetch();
+    },
+    isaddnewmovie() {
+        return Session.get('isAddNewMovie')
     }
 });
 
 Template.body.events({
     'click .selectMovie'(event, instance){
         instance.state.set('selectMovie', this._id);
+        Session.set('isAddNewMovie',true);
     },
     'click .add-newmovie'(event, instance){
-        var state = instance.state.get('addNewmovie') ? true : false;
-        instance.addNewmovie.set(!state);
+        var i  = Session.get('isAddNewMovie');
+        Session.set('isAddNewMovie',!i);
     },
     'click .reserved-seat'(event, instance){
         // I don't used boolean here might also have cancelled status
         var status = this.status == 'RESERVED' ? '' : 'RESERVED'
-        Seats.update(this._id,
-            {
-                $set:{status : status}
-            })
+        var formData = {
+            seatid:this._id,
+            status:status
+        };
+        Meteor.call('seats.setReserved', formData, function(error, result){
+            alert(error.reason);
+        });
     },
     'submit .newMovie'(event) {
         event.preventDefault();
@@ -53,11 +64,16 @@ Template.body.events({
             title:target.title.value,
             desc:target.description.value,
             showingdate:target.showingdate.value,
-            capacity:target.showingdate.value
+            capacity:target.capacity.value,
+            banner:target.banner.value,
+            frame:target.frame.value
         };
-        console.log("formData",formData);
 
-        Movies.insert(formData);
+        Meteor.call('movies.insert', formData);
+        Session.set('isAddNewMovie',true);
     },
+    'click .cancel-newmovie'() {
+        Session.set('isAddNewMovie',true);
+    }
     
 })
