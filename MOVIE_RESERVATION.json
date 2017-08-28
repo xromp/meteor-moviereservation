@@ -1,0 +1,29 @@
+{movies:
+{ "_id" : "EMkW2zGTAFiRYov2i", "createdAt" : ISODate("2017-08-28T15:19:10.276Z"), "owner" : "iSXw8bAe94xnkxc8F", "username" : "rom", "title" : "Jusctice League", "desc" : "sample summary", "showingdate" : "2017-01-01", "capacity" : "12", "banner" : "http://www.justiceleaguethemovie.com/img/gallery/img01.jpg", "frame" : "https://images-na.ssl-images-amazon.com/images/M/MV5BMjI2NjI2MDQ0NV5BMl5BanBnXkFtZTgwMTc1MjAwMjI@._V1_UX182_CR0,0,182,268_AL_.jpg", "isFirst" : "" },
+{ "_id" : "k4YLNZ7iC3Myy5Ave", "createdAt" : ISODate("2017-08-28T15:21:42.374Z"), "owner" : "iSXw8bAe94xnkxc8F", "username" : "rom", "title" : "Spider-man Homecoming", "desc" : "This is brief summary of spider man", "showingdate" : "2017-07-07", "capacity" : "10", "banner" : "https://i.imgbox.com/AT6KhN8b.png", "frame" : "http://oyster.ignimgs.com/wordpress/stg.ign.com/2017/05/Spiderman-720x1066.jpg", "isFirst" : true }
+}
+{seats:
+{ "_id" : "3NRrcKpY2uzRqr3vu", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 1 },
+{ "_id" : "K9bQwd9rKZXiLFske", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 2, "status" : "", "reservedBy" : null, "userId" : null, "reservedAt" : ISODate("2017-08-28T15:48:59.411Z") },
+{ "_id" : "zdYFoDgH58mBtFSEn", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 3 },
+{ "_id" : "rayZQLrZLPuawkPht", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 4 },
+{ "_id" : "nZWs7R7vwnYcm2TDS", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 5 },
+{ "_id" : "AYn7Z9heJAFAiKtEA", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 6 },
+{ "_id" : "jkDft98f5MpqWfvYi", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 7 },
+{ "_id" : "TDkAhxvNtsb4kAy8A", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 8 },
+{ "_id" : "rDqzaaziGb7idJw4b", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 9 },
+{ "_id" : "qw4n9n3PrNkzS6vst", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 10 },
+{ "_id" : "ENmdPBj2ur7aoMcpv", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 11 },
+{ "_id" : "fgNvaMCLaWYPQs5kb", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 12 },
+{ "_id" : "3NRrcKpY2uzRqr3vu", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 1 },
+{ "_id" : "K9bQwd9rKZXiLFske", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 2, "status" : "", "reservedBy" : null, "userId" : null, "reservedAt" : ISODate("2017-08-28T15:48:59.411Z") },
+{ "_id" : "zdYFoDgH58mBtFSEn", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 3 },
+{ "_id" : "rayZQLrZLPuawkPht", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 4 },
+{ "_id" : "nZWs7R7vwnYcm2TDS", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 5 },
+{ "_id" : "AYn7Z9heJAFAiKtEA", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 6 },
+{ "_id" : "jkDft98f5MpqWfvYi", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 7 },
+{ "_id" : "TDkAhxvNtsb4kAy8A", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 8 },
+{ "_id" : "rDqzaaziGb7idJw4b", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 9 },
+{ "_id" : "qw4n9n3PrNkzS6vst", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 10 },
+{ "_id" : "ENmdPBj2ur7aoMcpv", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 11 },
+{ "_id" : "fgNvaMCLaWYPQs5kb", "movieid" : "EMkW2zGTAFiRYov2i", "seatNo" : 12 }}
